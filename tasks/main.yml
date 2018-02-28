@@ -1,6 +1,6 @@
 ---
 - name: install requirements
-  apt: name={{ item }} cache_valid_time=86400 update_cache=yes
+  apt: name={{ item }} cache_valid_time={{ apt_cache_valid_time | default (86400) }} update_cache=yes
   with_items:
       - unzip
       - python-httplib2
